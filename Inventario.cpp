@@ -1,14 +1,3 @@
-/*
-
-- listas enlazadas, colas, pilas, árboles.
-
-- std::vector<Productos>.
-
-- Guardar/cargar desde archivo.
-
-- Código separado en .h / .cpp (headers).
-
-*/
 #include<iostream>
 #include<cstdlib>
 #include<ctime>
@@ -40,36 +29,53 @@ struct boludos{
 struct Estado{
     int totalproductos = 0;
     int índice = 0;
-}
+};
 
 //Manipulación de inventario
 
 void agregar(Productos P[], boludos& flags, Estado& actual);
+
 void mostrar(Productos P[], bool band, int i);
+
 bool menumostrar(Productos P[], Estado actual);
+
 int buscar(Productos P[], Estado& actual);
+
 bool modificar(Productos P[], boludos& flags, Estado actual);
+
 bool venta(Productos P[], float& precio, int id, int cuanto);
+
 //bool menuventa();
 
 //  // 
 
 void inicio();
+
 void limpiarpantalla();
+
 void pausa();
+
 void limpiarbuffer();
+
 int buscarSlot(Productos P[], Estado actual);
+
 void pedirdatos(Productos P[], boludos& flags, Estado actual);
-bool mostrartodo(Productos P[], Estado actual);    
+
+bool mostrartodo(Productos P[], Estado actual);
+
 int generacionID(Productos P[], Estado actual);
+
 bool comparacionID(Productos P[]);
+
 bool Comparacion_String(Productos P[], Estado actual, string name);
+
 void UX(int caso);
+
 string Input_A(Productos* P, Estado actual);
 
 //  //
 
-void MenuPrincipal(Productos* P, boludos flags, Estado actual);
+void MenuPrincipal(Productos* P, boludos& flags, Estado& actual);
 
 //  //
 
@@ -85,10 +91,8 @@ int main(){
 
     inicio();
 
-    while(band){
-        limpiarpantalla();
-        MenuPrincipal(P, flags, actual, band);
-    }
+    MenuPrincipal(P, flags, actual);
+    
 
     delete[] P;
     return 0;
@@ -100,19 +104,18 @@ void inicio(){
     cin.get();
 }
 
-void MenuPrincipal(Productos* P, boludos flags, Estado& actual, bool& band){
-    bool flag = false;
-    int rta = 0;
-    int i = 0;
+void MenuPrincipal(Productos* P, boludos& flags, Estado& actual){
 
-    UX(2);
+    do{
+        limpiarpantalla();
+        bool flag = false;
+        int rta = 0;
+        int i = 0;
 
-    cin>>rta;
+        UX(2);
 
-    if(!(rta >= 1 && rta <= 5)){
-        UX(11);
-    }
-    else{
+        cin>>rta;
+
         switch(rta){
             case 1 :
 
@@ -150,13 +153,17 @@ void MenuPrincipal(Productos* P, boludos flags, Estado& actual, bool& band){
                 pausa();
                 menuventa();
                 pausa();
-                break;
+                    break;
             case 5 :
 
                 limpiarpantalla();
                 band = false;
                 break;
-        }
+            default:
+                limpiarpantalla();
+                UX(11);
+            }
+        }while(band);    
     }
 }
 
@@ -196,7 +203,7 @@ int buscarSlot(Productos P[], Estado actual){
 void pedirdatos(Productos P[], boludos& flags, Estado actual){
     indice = actual.indice;
     
-    string name;
+    string name,  estring;
     
     bool h = false;
     
@@ -222,8 +229,8 @@ void pedirdatos(Productos P[], boludos& flags, Estado actual){
             }
         }while(!comparacionstring(P, actual, estring));
         flags.nombre=false;
-        h=true;
-    }
+        h = true;
+    }       
     if(flags.cantidad){
         if(flags.nuevo){
             cout<<"\nCantidad inicial del nuevo producto: ";
@@ -561,68 +568,70 @@ void pausa(){
 void UX(int caso){
     switch(caso){
     
-    case 1 :
-        cout<<"\n\n\n\nBienvenido\n"<<endl;
-        cout<<"Enter para iniciar:\n\n"<<endl;
-    case 2 :
-        //Main Menu
-        cout<<"Main menú.\n\n"<<endl;
-        cout<<"1 . Agregar."<<endl;
-        cout<<"2 . Mostrar."<<endl;
-        cout<<"3 . Modificar.   "<<endl;
-        cout<<"4 . Venta.   X\n\n"<<endl;
-        cout<<"5 . Salir.\n\n";
-    case 3 :
-        cout<<"Producto creado, coloque sus datos:\n\n";
-    case 4 :
+        case 1 :
+            cout<<"\n\n\n\nBienvenido\n"<<endl;
+            cout<<"Enter para iniciar:\n\n"<<endl;
+        case 2 :
+            //Main Menu
+            cout<<"Main menú.\n\n"<<endl;
+            cout<<"1 . Agregar."<<endl;
+            cout<<"2 . Mostrar."<<endl;
+            cout<<"3 . Modificar.   "<<endl;
+            cout<<"4 . Venta.   X\n\n"<<endl;
+            cout<<"5 . Salir.\n\n";
+        case 3 :
+            cout<<"Producto creado, coloque sus datos:\n\n";
+        //case 4 :
         
-    case 6 :
-        cout<<"'"<<P[i].nombre<<"' Ya existe.";
-        cout<<"\nPor Favor, Introduzca nuevo nombre.";
-    case 7 :
-        cout<<"¿Seguro que quiere volver al Menu Principal?\n\n";
-        cout<<" 1 . Salir.\n\n";
-        cout<<"0 . Cancelar.\n\n";
-    case 8 :
-        cout<<"   ¿  ?";
-        cout<<"\n\n [0] . Mostrar Uno\n\n";
-        cout<<" [1] . Mostrar Todos\n\n";
-    case 9 :
-        limpiarpantalla();
-        cout<<"Este Producto fue eliminado.\n"<<endl;
-        cout << "Presione Enter para volver al Anterior...";
-        pausa();
-    case 10 :
+        case 6 :
+            cout<<"'"<<P[i].nombre<<"' Ya existe.";
+            cout<<"\nPor Favor, Introduzca nuevo nombre.";
+        case 7 :
+            cout<<"¿Seguro que quiere volver al Menu Principal?\n\n";
+            cout<<" 1 . Salir.\n\n";
+            cout<<"0 . Cancelar.\n\n";
+        case 8 :
+            cout<<"   ¿  ?";
+            cout<<"\n\n [0] . Mostrar Uno\n\n";
+            cout<<" [1] . Mostrar Todos\n\n";
+        case 9 :
+            limpiarpantalla();
+            cout<<"Este Producto fue eliminado.\n"<<endl;
+            cout << "Presione Enter para volver al Anterior...";
+            pausa();
+        //case 10 :
 
-    case 11 :
-        limpiarpantalla();
-        cout<<"Respuesta invalida"<<endl;
-        cout<<"\ningrese nuevamente\n\n";
-        cin.get();
-    case 13 :
+        case 11 :
+            limpiarpantalla();
+            cout<<"Respuesta invalida\n\n";
+            cout<<"ingrese nuevamente\n\n";
+            cin.get();
+        //case 13 :
     
-    case 15 :
+        //case 15 :
              
-    case 16 :
-        cout<<"::::::::::::::::::::::::::::::::::::::::::\n\n";
-        cout<<"\n\nNombre: "<<P[actual.indice].nombre<<"."<<endl;
-        cout<<"\nID: ["<<P[actual.indice].id<<"]."<<endl;
-        cout<<"\nCantidad: "<<P[actual.indice].cantidad<<"."<<endl;
-        cout<<"\nPrecio: "<<P[actual.indice].precio<<"."<<endl;
-        cout<<"\n\n::::::::::::::::::::::::::::::::::::::::::";
-    case 17 :
-        cout<<"[Búsqueda por ID]\n";
-        cout<<"\nID: ["<<P[actual.indice].id<<"]."<<endl;
-        cout<<"\n\nNombre: "<<P[actual.indice].nombre<<"."<<endl;
-        cout<<"\nCantidad: "<<P[actual.indice].cantidad<<"."<<endl;
-        cout<<"\nPrecio: "<<P[actual.indice].precio<<"."<<endl;
-    case 18 :
-        cout<<"[Búsqueda por Nombre]\n";
-        cout<<"\n\nNombre: "<<P[actual.indice].nombre<<"."<<endl;
-        cout<<"\nID: ["<<P[actual.indice].id<<"]."<<endl;
-        cout<<"\nCantidad: "<<P[actual.indice].cantidad<<"."<<endl;
-        cout<<"\nPrecio: "<<P[actual.indice].precio<<"."<<endl;
-    case 19 :   
+        case 16 :
+            cout<<"::::::::::::::::::::::::::::::::::::::::::\n\n";
+            cout<<"\n\nNombre: "<<P[actual.indice].nombre<<"."<<endl;
+            cout<<"\nID: ["<<P[actual.indice].id<<"]."<<endl;
+            cout<<"\nCantidad: "<<P[actual.indice].cantidad<<"."<<endl;
+            cout<<"\nPrecio: "<<P[actual.indice].precio<<"."<<endl;
+            cout<<"\n\n::::::::::::::::::::::::::::::::::::::::::";
+        case 17 :
+            cout<<"[Búsqueda por ID]\n";
+            cout<<"\nID: ["<<P[actual.indice].id<<"]."<<endl;
+            cout<<"\n\nNombre: "<<P[actual.indice].nombre<<"."<<endl;
+            cout<<"\nCantidad: "<<P[actual.indice].cantidad<<"."<<endl;
+            cout<<"\nPrecio: "<<P[actual.indice].precio<<"."<<endl;
+        case 18 :
+            cout<<"[Búsqueda por Nombre]\n";
+            cout<<"\n\nNombre: "<<P[actual.indice].nombre<<"."<<endl;
+            cout<<"\nID: ["<<P[actual.indice].id<<"]."<<endl;
+            cout<<"\nCantidad: "<<P[actual.indice].cantidad<<"."<<endl;
+            cout<<"\nPrecio: "<<P[actual.indice].precio<<"."<<endl;
+            cin.get();
+            break;
+        //case 19 :   
     
     }
 }
