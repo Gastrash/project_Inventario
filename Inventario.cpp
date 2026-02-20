@@ -291,29 +291,25 @@ int generacionID(Productos P[], Estado actual){
 bool comparacionID(Productos P[], string name){
     bool repetido = false;
     
-    
-    
     for (int i = 0; i < actual.totalproductos; i++){
-            if (P[i].id == id && P[i].active) {
-                repetido = true;
-                break;
-            }
+        if (P[i].id == id && P[i].active) {
+        repetido = true;
+        break;
+        }
     }
     return repetido;
 }
 
 bool modificar(Productos P[], boludos& flags){
 
-    limpiarpantalla();
     bool band = false;
     bool flag = false;
-    int num = 7;
     string name;
 
     do{
         limpiarpantalla();
         
-        indice = buscar(P, totalproductos);
+        indice = buscar(P, actual);
 
     }while(!band);
 
@@ -321,33 +317,39 @@ bool modificar(Productos P[], boludos& flags){
 
         mostrar(P, true, indice, 1);
 
-        cout<<" 0 . Nombre."; if(num==0) cout<<" <<";
-        cout<<"\n\n 1 . Cantidad."; if(num==1) cout<<" <<";
-        cout<<"\n\n 2 . Precio."; if(num==2) cout<<" <<";
-        cout<<"\n\n 3 . ID."; if(num==3) cout<<" <<";
+        cout<<" 0 . Nombre."; if(flags.nombreB) cout<<" <<";
+        cout<<"\n\n 1 . Cantidad."; if(flags.cantidadB) cout<<" <<";
+        cout<<"\n\n 2 . Precio."; if(flags.preciosB) cout<<" <<";
+        cout<<"\n\n 3 . ID."; if(flags.idB) cout<<" <<";
         cout<<"\n\n 4 . Cancelar.\n\n"; 
 
-        if(num >= 0 && num <= 4) cout<<"\n 5 . Modificar.\n\n";
+        if(flag) cout<<"\n 5 . Modificar.\n\n";
 
-        num = _getch();
+        char a = _getch();
 
-        switch(num){
+        switch(a){
             case '0' :
-            flags.nombreB = true;
-            break;
+                flags.nombreB = true;
+                flag = true;
+                break;
             case '1' :
-            flags.cantidadB = true;
-            break;
+                flags.cantidadB = true;
+                flag = true;
+                break;
             case '2' :
-            flags.precioB = true;
-            break;
+                flags.precioB = true;
+                flag = true;
+                break;
             case '3' :
-            flags.idB = true;
-            break;
+                flags.idB = true;
+                flag = true;
+                break;
             case '4' :
-            return false;
+                return false;
             case '5' :
-            return true;
+                return true;
+            default:
+                break;
         }
         limpiarpantalla();
     }
@@ -366,9 +368,10 @@ bool menuventa(){
 
 
 bool venta(Productos P[], Estado actual, string id, int cuanto){
+    float plata = 0;
 
     for(int i=0; i< actual.totalproductos; i++){
-        if(P[i].id == id && P[i].active && P[i].cantidad > 0){
+        if((P[i].id == id) && (P[i].active) && (P[i].cantidad > 0)){
 
             P[i].cantidad -= cuanto;
             plata += P[i].precio * cuanto;
@@ -489,7 +492,7 @@ bool mostrartodo(Productos P[]){
                 mostrar(P, 16);
 
                 if(num > 0) cout<<"\n\n\n\n Anterior: [A]";
-                if(num < totalproductos - limite) cout<<"\n\n Siguiente: [D]";
+                if(num < actual.totalproductos - limite) cout<<"\n\n Siguiente: [D]";
                 cout<<"\n\n Salir: [Q]";
                 while(true){
                     getline(cin, a);
@@ -497,7 +500,7 @@ bool mostrartodo(Productos P[]){
                         num--;
                         break;
                     }
-                    if(a == "D" && num < totalproductos - limite){
+                    if(a == "D" && num < actual.totalproductos - limite){
                         num++;
                         break;
                     }
