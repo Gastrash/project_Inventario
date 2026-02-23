@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Lista.h"
-
-//Ultimo_nodo;
+#include "Producto.h"
+#include "Arbol.h"
 
 using namespace std;
 
@@ -11,8 +11,8 @@ void Lista::Push(const Producto &Pr){
 	nuevo_nodo->P = Pr;
 
 	if(!Cabeza){
-                nuevo_nodo->siguiente = nuevo_nodo;
-                nuevo_nodo->anterior = nuevo_nodo;
+        nuevo_nodo->siguiente = nuevo_nodo;
+        nuevo_nodo->anterior = nuevo_nodo;
 
 		Ultimo_nodo = nuevo_nodo;
 		Cabeza = nuevo_nodo;
@@ -28,13 +28,13 @@ void Lista::Push(const Producto &Pr){
 
 	Ultimo_nodo = nuevo_nodo;
 
-	arbol::insertar(Ultimo_nodo);
+	arbol1::insertar(Ultimo_nodo);
 }
 
 bool Lista::Pop(Nodo* borrar){
 	if(!borrar) return false;
 
-	int id = borrar->P->id;
+	int id = borrar->P.id;
 
 	if(Cabeza == borrar && Ultimo_nodo == borrar){
 
