@@ -1,29 +1,37 @@
-#include <iostream>
-#include <cstdlib>    // rand, srand
+#include <cstdlib>
 #include <ctime>
+
 #include "Producto.h"
 
-using namespace std;
+Producto::Producto(){
 
-// definición estática de la función de generación de IDs
-int Producto::Random_id() {
-    // inicializar la semilla la primera vez si es necesario
-    static bool seeded = false;
-    if (!seeded) {
-        srand(static_cast<unsigned>(time(nullptr)));
-        seeded = true;
-    }
-    return rand();
+    name = "NULL";
+    cantidad = 0;
+    id = Random_id();
+    vacio = true;
+    active = false;
 }
 
-Producto Producto::Constructor(){
-    Producto P;
+int Producto::Random_id(){
 
-    P.name = "NULL";
-    P.cantidad = 0;
-    P.id = Random_id();
-    P.vacio = true;
-    P.active = false;   
+    static bool seeded = false;
 
-    return P;
+    if(!seeded){
+        srand(time(nullptr));
+        seeded = true;
+    }
+
+    return 1000 + rand() % 9000;
+}
+
+std::string Producto::getName(){
+    return name;
+}
+
+int Producto::getCantidad(){
+    return cantidad;
+}
+
+void Producto::setCantidad(int nuevaCantidad){
+    cantidad = nuevaCantidad;
 }
