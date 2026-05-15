@@ -12,6 +12,13 @@ private:
     
 public:
 
-    Producto Constructor();
+    Producto(std::string name, int cantidad);
+    
+    std::string getName();
+    int getCantidad();
+    int getId();
+    
+    void setCantidad(int cantidad);
+    
     static int Random_id();
 };
