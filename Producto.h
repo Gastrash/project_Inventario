@@ -17,8 +17,7 @@ public:
     std::string getName();
     int getCantidad();
     int getId();
-    
+    int idFunction();
     void setCantidad(int cantidad);
-    
-    static int Random_id();
+    void setActive(bool active);
 };
