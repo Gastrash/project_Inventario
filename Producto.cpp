@@ -3,25 +3,12 @@
 
 #include "Producto.h"
 
-Producto::Producto(){
+Producto::Producto(std::string name, int cantidad){
 
-    name = "NULL";
-    cantidad = 0;
-    id = Random_id();
-    vacio = true;
-    active = false;
-}
-
-int Producto::Random_id(){
-
-    static bool seeded = false;
-
-    if(!seeded){
-        srand(time(nullptr));
-        seeded = true;
-    }
-
-    return 1000 + rand() % 9000;
+    this->name = name;
+    this->cantidad = cantidad;
+    this->id = idFunction();
+    this->active = true;
 }
 
 std::string Producto::getName(){
@@ -32,6 +19,19 @@ int Producto::getCantidad(){
     return cantidad;
 }
 
-void Producto::setCantidad(int nuevaCantidad){
-    cantidad = nuevaCantidad;
+int Producto::getId(){
+    return id;
+}
+
+int Producto::idFunction(){
+    static int id = 0;
+    return id++;
+}
+
+void Producto::setCantidad(int cantidad){
+    this->cantidad = cantidad;
+}
+
+void Producto::setActive(bool active){
+    this->active = active;
 }
