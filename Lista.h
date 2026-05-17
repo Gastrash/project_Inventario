@@ -8,13 +8,13 @@ class Lista{
             Nodo* anterior;
         };
         Nodo* Cabeza = nullptr;
-	    Nodo* Ultimo_nodo = nullptr;
+	       Nodo* Ultimo_nodo = nullptr;
 
     public:
 
-        Nodo 
+        Lista();
 
-        void Push(const Producto &P);
+        void Push(const Producto&);
 
         void Pop(Nodo* borrar);
 };
