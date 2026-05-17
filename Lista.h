@@ -12,9 +12,7 @@ class Lista{
 
     public:
 
-        Lista();
+        void Push(Nodo* Cabeza, Nodo* Ultimo_nodo, const Producto&);
 
-        void Push(const Producto&);
-
-        void Pop(Nodo* borrar);
+        void Pop(Nodo* Cabeza, Nodo* Ultimo_nodo, Nodo* borrar);
 };
