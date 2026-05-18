@@ -12,7 +12,7 @@ class Lista{
 
     public:
 
-        void Push(Nodo* Cabeza, Nodo* Ultimo_nodo, const Producto&);
+        void Push(const Producto&);
 
-        void Pop(Nodo* Cabeza, Nodo* Ultimo_nodo, Nodo* borrar);
+        void Pop(Nodo* borrar);
 };
