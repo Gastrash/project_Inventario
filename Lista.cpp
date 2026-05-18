@@ -6,7 +6,7 @@
 
 using namespace std;
 
-void Lista::Push(Nodo*& Cabeza, Nodo*& Ultimo_nodo, const Producto &Pr){
+void Lista::Push(const Producto &Pr){
 
 	Nodo* nuevo_nodo = new Nodo();
 	nuevo_nodo->P = Pr;
@@ -32,7 +32,7 @@ void Lista::Push(Nodo*& Cabeza, Nodo*& Ultimo_nodo, const Producto &Pr){
 	arbol::insertar(Ultimo_nodo);
 }
 
-void Lista::Pop(Nodo*& Cabeza, Nodo*& Ultimo_nodo, Nodo* borrar){
+void Lista::Pop(Nodo* borrar){
 	if(!borrar) return false;
 
 	int id = borrar->P.id;
