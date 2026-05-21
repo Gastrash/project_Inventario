@@ -1,3 +1,5 @@
+//Producto.h
+
 #pragma once
 #include <string>
 
@@ -14,10 +16,10 @@ public:
 
     Producto(std::string name, int cantidad);
     
-    std::string getName();
-    int getCantidad();
-    int getId();
-    int idFunction();
-    void setCantidad(int cantidad);
-    void setActive(bool active);
+    std::string Producto::getName();
+    int Producto::getCantidad();
+    int Producto::getId();
+    int Producto::idFunction();
+    void Producto::setCantidad(int cantidad);
+    void Producto::setActive(bool active);
 };

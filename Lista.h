@@ -16,5 +16,4 @@ class Lista{
         void Push(const Producto&);
 
         void Pop(Nodo* borrar);
-    
 };
