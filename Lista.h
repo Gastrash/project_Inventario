@@ -8,7 +8,7 @@ class Lista{
             Nodo* anterior;
         };
         Nodo* Cabeza = nullptr;
-	       Nodo* Ultimo_nodo = nullptr;
+	   Nodo* Ultimo_nodo = nullptr;
 
     public:
 
