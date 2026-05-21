@@ -7,8 +7,8 @@
 using namespace std;
 
 void Lista::Push(const Producto &Pr){
- Nodo* Cabeza = this->Cabeza;
- Nodo* Cabeza = this->Ultimo_nodo;
+    Nodo* Cabeza = this->Cabeza;
+    Nodo* Cabeza = this->Ultimo_nodo;
 
 	Nodo* nuevo_nodo = new Nodo();
 	nuevo_nodo->P = Pr;
