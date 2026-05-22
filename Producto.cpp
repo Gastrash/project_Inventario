@@ -1,10 +1,8 @@
-#include <cstdlib>
-#include <ctime>
+//Producto.cpp
 
 #include "Producto.h"
 
 Producto::Producto(std::string name, int cantidad){
-
     this->name = name;
     this->cantidad = cantidad;
     this->id = idFunction();

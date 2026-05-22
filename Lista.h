@@ -1,6 +1,6 @@
 //Lista.h
 
-class Lista{
+class Lista {
     private:
         struct Nodo{
             Producto P;
