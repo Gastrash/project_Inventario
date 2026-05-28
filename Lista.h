@@ -1,19 +1,18 @@
 //Lista.h
 
 class Lista {
-    private:
-        struct Nodo{
-            Producto P;
-            Nodo* siguiente;
-            Nodo* anterior;
-        };
-        
-        Nodo* Cabeza = nullptr;
-	    Nodo* Ultimo_nodo = nullptr;
+private:
+Nodo* Cabeza = nullptr;  
+        Nodo* Ultimo_nodo = nullptr;  
 
-    public:
+public: 
+struct Nodo{
+Producto P;
+Nodo* siguiente;
+Nodo* anterior;
+};
+    void Push(const Producto&);  
 
-        void Push(const Producto&);
+    void Pop(Nodo* borrar);
 
-        void Pop(Nodo* borrar);
 };
