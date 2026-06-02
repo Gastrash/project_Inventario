@@ -8,7 +8,7 @@ class inventario{
         Lista stock;
         Arbol indice;
 
-	    public:
-         void agregarProducto();
+	public:
+        void agregarProducto();
          
 };

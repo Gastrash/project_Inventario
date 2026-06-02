@@ -7,9 +7,6 @@
 using namespace std;
 
 void Lista::Push(const Producto &Pr){
-    this->Cabeza;
-    this->Ultimo_nodo;
-
     Arbol arbol;
 
     Nodo* nuevo_nodo = new Nodo();
@@ -30,7 +27,7 @@ void Lista::Push(const Producto &Pr){
 
     Ultimo_nodo->siguiente = nuevo_nodo;  
     nuevo_nodo->anterior = Ultimo_nodo;  
-    nuevo_nodo->siguiente = Cabeza;  
+    nuevo_nodo->siguiente = Cabeza;
     Cabeza->anterior = nuevo_nodo;  
 
     Ultimo_nodo = nuevo_nodo;  

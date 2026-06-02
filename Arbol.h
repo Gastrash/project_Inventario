@@ -11,8 +11,11 @@ class Arbol{
             Nodo_Arbol* der;
         };
         Nodo_Arbol* raiz = nullptr;
+
+        Nodo_Arbol* BuscarNodoArbol(int id);
+        
     public:
-        void Insertar(Nodo* nodo);
+        void Insertar(Lista::Nodo* nodo);
         void Pop(int id);
-        Lista::Nodo* Busqueda(int id);
+        Lista::Nodo* BuscarNodo(int id);
 };
