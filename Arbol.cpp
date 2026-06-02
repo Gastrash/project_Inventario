@@ -3,17 +3,24 @@
 #include "Arbol.h"
 
 void Arbol::Insertar(Nodo* nodo){
-this->raiz;
-Nodo_Arbol* nuevo = new Nodo_Arbol();
-nuevo->nodo = nodoLista;
-nuevo->izq = nullptr;
-nuevo->der = nullptr;
+
+    this->raiz;
+    
+
+    Nodo_Arbol* nuevo = new Nodo_Arbol();
+    nuevo->nodo = nodoLista;
+    nuevo->izq = nullptr;
+    nuevo->der = nullptr;
+    Nodo* actual = nullptr;
+
     if(raiz = nullptr){
-        raiz = nuevo;
-}
+=""        raiz = nuevo;
+        
+    }
+    
     if(){
         
-}
+    }
 }
 
 void Arbol::Pop(int id){
