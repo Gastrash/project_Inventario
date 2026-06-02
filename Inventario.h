@@ -4,11 +4,11 @@
 #include "Arbol.h"
 
 class inventario{
-	private:
-	Lista *stock;
-	Arbol *arbol;
+    private:
+        Lista stock;
+        Arbol indice;
 
-	public:
-
-	
+	    public:
+         void agregarProducto();
+         
 };
