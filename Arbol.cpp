@@ -36,8 +36,6 @@ void Arbol::Pop(int id){
     Nodo_Arbol* actual = raiz;
     Nodo_Arbol* padre = nullptr;
 
-    if(actual == nullptr) return;
-
     while(actual){
         int id_actual = actual->nodo->P.getId();
 
@@ -49,23 +47,28 @@ void Arbol::Pop(int id){
 
     if(actual == nullptr) return;
 
-    else if(actual->der == nullptr && actual->izq == nullptr){
+    if(padre == nullptr){
+        raiz = nullptr;
+        return;
+    }
+
+    if(actual->der == nullptr && actual->izq == nullptr){
         if(padre->izq == actual) padre->izq = nullptr;
         else padre->der = nullptr;
         delete actual;
     }
 
     else if(actual->der == nullptr || actual->izq == nullptr){
-
+        if(actual->izq){
+            
+        }
+        if(padre->izq == actual) padre->izq = nullptr;
+        else padre->der = nullptr;
+        delete actual;
     }
 
     else if((actual->der) && (actual->izq)){
         
-    }
-
-    if(padre == nullptr){
-        raiz = nullptr;
-        return;
     }
 }
 
