@@ -52,23 +52,27 @@ void Arbol::Pop(int id){
         return;
     }
 
-    if(actual->der == nullptr && actual->izq == nullptr){
+    if(actual->der == nullptr && actual->izq == nullptr){ //hoja
         if(padre->izq == actual) padre->izq = nullptr;
         else padre->der = nullptr;
         delete actual;
     }
 
-    else if(actual->der == nullptr || actual->izq == nullptr){
+    else if(actual->der == nullptr || actual->izq == nullptr){ //un hijo
         if(actual->izq){
-            
+            padre->izq = actual->izq;
+            delete actual; 
         }
-        if(padre->izq == actual) padre->izq = nullptr;
-        else padre->der = nullptr;
-        delete actual;
+        else{
+            padre->der = actual->der;
+            delete actual;
+        }
     }
 
-    else if((actual->der) && (actual->izq)){
-        
+    else if((actual->der) && (actual->izq)){ //dos hijos
+        padre->izq = actual->izq;
+        padre->der = actual->der;
+        delete actual;
     }
 }
 
