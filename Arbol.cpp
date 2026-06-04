@@ -47,10 +47,10 @@ void Arbol::Pop(int id){
 
     if(actual == nullptr) return;
 
-    if(padre == nullptr){
+    /*if(padre == nullptr){ //raiz
         raiz = nullptr;
         return;
-    }
+    }*/
 
     if(actual->der == nullptr && actual->izq == nullptr){ //hoja
         if(padre->izq == actual) padre->izq = nullptr;
@@ -60,11 +60,13 @@ void Arbol::Pop(int id){
 
     else if(actual->der == nullptr || actual->izq == nullptr){ //un hijo
         if(actual->izq){
-            padre->izq = actual->izq;
-            delete actual; 
+            if(padre->izq == actual) padre->izq = actual->izq;
+            else padre->der = actual->izq;
+            delete actual;
         }
         else{
-            padre->der = actual->der;
+            if(padre->izq == actual) padre->izq = actual->der;
+            else padre->der = actual->der;
             delete actual;
         }
     }
