@@ -6,7 +6,7 @@
 
 using namespace std;
 
-void Lista::Push(const Producto &Pr){
+Lista::Nodo Lista::Push(const Producto &Pr){
     Nodo* nuevo_nodo = new Nodo();
     nuevo_nodo->siguiente = nullptr;
     nuevo_nodo->anterior = nullptr;
@@ -19,7 +19,7 @@ void Lista::Push(const Producto &Pr){
         Ultimo_nodo = nuevo_nodo;  
         Cabeza = nuevo_nodo;  
 
-        return;  
+        return nuevo_nodo;  
     }  
 
     Ultimo_nodo->siguiente = nuevo_nodo;  
@@ -28,6 +28,8 @@ void Lista::Push(const Producto &Pr){
     Cabeza->anterior = nuevo_nodo;  
 
     Ultimo_nodo = nuevo_nodo;
+
+    return nuevo_nodo;
 }
 
 void Lista::Pop(Nodo* borrar){
