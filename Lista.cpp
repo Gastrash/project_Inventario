@@ -7,8 +7,6 @@
 using namespace std;
 
 void Lista::Push(const Producto &Pr){
-    Arbol arbol;
-
     Nodo* nuevo_nodo = new Nodo();
     nuevo_nodo->siguiente = nullptr;
     nuevo_nodo->anterior = nullptr;
@@ -21,7 +19,6 @@ void Lista::Push(const Producto &Pr){
         Ultimo_nodo = nuevo_nodo;  
         Cabeza = nuevo_nodo;  
 
-        arbol.Insertar(Ultimo_nodo);  
         return;  
     }  
 
@@ -30,10 +27,7 @@ void Lista::Push(const Producto &Pr){
     nuevo_nodo->siguiente = Cabeza;
     Cabeza->anterior = nuevo_nodo;  
 
-    Ultimo_nodo = nuevo_nodo;  
-
-    arbol.Insertar(Ultimo_nodo);
-
+    Ultimo_nodo = nuevo_nodo;
 }
 
 void Lista::Pop(Nodo* borrar){
@@ -42,15 +36,11 @@ void Lista::Pop(Nodo* borrar){
     this->Cabeza;
     this->Ultimo_nodo;
     
-    Arbol arbol;
-    
     Nodo* anterior = borrar->anterior;
     Nodo* siguiente = borrar->siguiente;
     int id = borrar->P.getId();  
 
     if(Cabeza == borrar && Ultimo_nodo == borrar){  
-
-        arbol.Pop(id);  
         delete borrar;  
         Cabeza = nullptr;  
         Ultimo_nodo = nullptr;  
@@ -61,11 +51,10 @@ void Lista::Pop(Nodo* borrar){
 
         Cabeza = Cabeza->siguiente;  
         Cabeza->anterior = Ultimo_nodo;  
-        Ultimo_nodo->siguiente = Cabeza;  
+        Ultimo_nodo->siguiente = Cabeza;
 
-        arbol.Pop(id);
-        delete borrar;  
-        return;  
+        delete borrar;
+        return;
     }  
 
     if(Ultimo_nodo == borrar){  
@@ -74,7 +63,6 @@ void Lista::Pop(Nodo* borrar){
         Ultimo_nodo->siguiente = Cabeza;  
         Cabeza->anterior = Ultimo_nodo;  
 
-        arbol.Pop(id);  
         delete borrar;  
         return;  
     }
@@ -82,7 +70,6 @@ void Lista::Pop(Nodo* borrar){
     siguiente->anterior = anterior;  
     anterior->siguiente = siguiente;  
 
-    arbol.Pop(id);  
     delete borrar;  
     return;
 }
