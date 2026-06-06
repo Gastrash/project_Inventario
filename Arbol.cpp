@@ -128,3 +128,11 @@ Lista::Nodo* Arbol::BuscarNodo(int id){
     if(arbol == nullptr) return nullptr;
     return arbol->nodo;
 }
+
+void Arbol::~Arbol(){
+    borrarArbol();
+}
+
+void Arbol::borrarArbol(){
+    //
+}
