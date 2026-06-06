@@ -12,9 +12,13 @@ class Lista {
         void Push(const Producto&);  
 
         void Pop(Nodo* borrar);
+
+        ~Lista();
     
     private:
     
         Nodo* Cabeza = nullptr;  
-        Nodo* Ultimo_nodo = nullptr;  
+        Nodo* Ultimo_nodo = nullptr;
+
+        void borrarLista();
 };
