@@ -75,3 +75,11 @@ void Lista::Pop(Nodo* borrar){
     delete borrar;  
     return;
 }
+
+void Lista::borrarLista(){
+    //
+}
+
+void Lista::~Lista(){
+    borrarLista();
+}
