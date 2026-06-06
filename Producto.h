@@ -8,8 +8,7 @@ private:
 
 std::string name;  
 int cantidad;  
-int id;  
-bool vacio;  
+int id;
 bool active;
 
 public:
