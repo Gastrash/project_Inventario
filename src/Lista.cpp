@@ -5,7 +5,7 @@
 
 using namespace std;
 
-Lista::Nodo* Lista::Push(const Producto &Pr){
+Lista::Nodo* Lista::Push(){
     Nodo* nuevo_nodo = new Nodo();
     nuevo_nodo->siguiente = nullptr;
     nuevo_nodo->anterior = nullptr;
