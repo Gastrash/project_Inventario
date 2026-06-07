@@ -7,7 +7,7 @@
 class Inventario{
     private:
         Lista lista;
-        Arbol Arbol;
+        Arbol arbol;
 
     public:
         void run();
