@@ -13,12 +13,12 @@ class Arbol{
         };
         Nodo_Arbol* raiz = nullptr;
 
-        Nodo_Arbol* BuscarNodoArbol(int id);
+        Nodo_Arbol* buscarNodoArbol(int id);
         void borrarArbol(Nodo_Arbol* nodo);
         
     public:
-        void Insertar(Lista::Nodo* nodo);
-        void Pop(int id);
-        Lista::Nodo* BuscarNodo(int id);
+        void push(Lista::Nodo* nodo);
+        void pop(int id);
+        Lista::Nodo* buscarNodo(int id);
         ~Arbol();
 };
