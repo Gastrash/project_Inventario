@@ -5,7 +5,7 @@
 
 using namespace std;
 
-Lista::Nodo* Lista::Push(){
+Lista::Nodo* Lista::push(){
     Nodo* nuevo_nodo = new Nodo();
     nuevo_nodo->siguiente = nullptr;
     nuevo_nodo->anterior = nullptr;
@@ -31,7 +31,7 @@ Lista::Nodo* Lista::Push(){
     return nuevo_nodo;
 }
 
-void Lista::Pop(Nodo* borrar){
+void Lista::pop(Nodo* borrar){
     if(!borrar) return;
     
     Nodo* anterior = borrar->anterior;
