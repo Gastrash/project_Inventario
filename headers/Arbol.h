@@ -1,7 +1,8 @@
 //Arbol.h
 
-#include "Lista.h"
-#include "Producto.h"
+#pragma once
+#include "../headers/Lista.h"
+#include "../headers/Producto.h"
 
 class Arbol{
     private:
@@ -13,7 +14,7 @@ class Arbol{
         Nodo_Arbol* raiz = nullptr;
 
         Nodo_Arbol* BuscarNodoArbol(int id);
-        void borrarArbol();
+        void borrarArbol(Nodo_Arbol* nodo);
         
     public:
         void Insertar(Lista::Nodo* nodo);

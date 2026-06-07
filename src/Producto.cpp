@@ -1,10 +1,10 @@
 //Producto.cpp
 
-#include "Producto.h"
+#include "../headers/Producto.h"
 
-Producto::Producto(std::string name, int cantidad){
-    this->name = name;
-    this->cantidad = cantidad;
+Producto::Producto(){
+    this->name = "";
+    this->cantidad = 0;
     this->id = idFunction();
     this->active = true;
 }
@@ -28,6 +28,10 @@ int Producto::idFunction(){
 
 void Producto::setCantidad(int cantidad){
     this->cantidad = cantidad;
+}
+
+void Producto::setName(std::string name){
+    this->name = name;
 }
 
 void Producto::setActive(bool active){

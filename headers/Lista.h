@@ -1,5 +1,8 @@
 //Lista.h
 
+#pragma once
+#include "../headers/Producto.h"
+
 class Lista {
 
     public: 
@@ -9,7 +12,7 @@ class Lista {
             Nodo* anterior;
         };
         
-        void Push(const Producto&);  
+        Nodo* Push(const Producto&);
 
         void Pop(Nodo* borrar);
 

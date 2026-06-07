@@ -1,6 +1,6 @@
 //Arbol.cpp
 
-#include "Arbol.h"
+#include "../headers/Arbol.h"
 
 void Arbol::Insertar(Lista::Nodo* nodo){
 
@@ -129,10 +129,15 @@ Lista::Nodo* Arbol::BuscarNodo(int id){
     return arbol->nodo;
 }
 
-void Arbol::~Arbol(){
-    borrarArbol();
+void Arbol::borrarArbol(Nodo_Arbol* nodo){
+    if(nodo == nullptr) return;
+
+    borrarArbol(nodo->izq);
+    borrarArbol(nodo->der);
+
+    delete nodo;
 }
 
-void Arbol::borrarArbol(){
-    //
+Arbol::~Arbol(){
+    borrarArbol(raiz);
 }

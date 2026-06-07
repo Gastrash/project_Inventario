@@ -1,25 +1,24 @@
 //Lista.cpp
 
-#include "Lista.h"
-#include "Producto.h"
-#include "Arbol.h"
+#include "../headers/Lista.h"
+#include "../headers/Producto.h"
 
 using namespace std;
 
-Lista::Nodo Lista::Push(const Producto &Pr){
+Lista::Nodo* Lista::Push(const Producto &Pr){
     Nodo* nuevo_nodo = new Nodo();
     nuevo_nodo->siguiente = nullptr;
     nuevo_nodo->anterior = nullptr;
-    nuevo_nodo->P = Pr;  
+    nuevo_nodo->P = Pr;
 
     if(!Cabeza){
         nuevo_nodo->siguiente = nuevo_nodo;
         nuevo_nodo->anterior = nuevo_nodo;
 
-        Ultimo_nodo = nuevo_nodo;  
+        Ultimo_nodo = nuevo_nodo;
         Cabeza = nuevo_nodo;  
 
-        return nuevo_nodo;  
+        return nuevo_nodo;
     }  
 
     Ultimo_nodo->siguiente = nuevo_nodo;  
@@ -34,13 +33,9 @@ Lista::Nodo Lista::Push(const Producto &Pr){
 
 void Lista::Pop(Nodo* borrar){
     if(!borrar) return;
-
-    this->Cabeza;
-    this->Ultimo_nodo;
     
     Nodo* anterior = borrar->anterior;
     Nodo* siguiente = borrar->siguiente;
-    int id = borrar->P.getId();  
 
     if(Cabeza == borrar && Ultimo_nodo == borrar){  
         delete borrar;  
@@ -77,9 +72,11 @@ void Lista::Pop(Nodo* borrar){
 }
 
 void Lista::borrarLista(){
-    //
+    while(Cabeza){
+        Pop(Cabeza);
+    }
 }
 
-void Lista::~Lista(){
+Lista::~Lista(){
     borrarLista();
 }

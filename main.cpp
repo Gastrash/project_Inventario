@@ -1,11 +1,12 @@
 //main.cpp
 
-#include<iostream>
-#include "Inventario.h"
-
-using namespace std;
+#include "../headers/Arbol.h"
+#include "../headers/Lista.h"
+#include "../headers/Producto.h"
 
 int main(){
-    
+
+    Lista l;
+
     return 0;
 }
