@@ -12,9 +12,9 @@ class Lista {
             Nodo* anterior;
         };
         
-        Nodo* Push(const Producto&);
+        Nodo* push();
 
-        void Pop(Nodo* borrar);
+        void pop(Nodo* borrar);
 
         ~Lista();
     
