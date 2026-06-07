@@ -2,7 +2,7 @@
 
 #include "../headers/Arbol.h"
 
-void Arbol::Insertar(Lista::Nodo* nodo){
+void Arbol::push(Lista::Nodo* nodo){
 
     Nodo_Arbol* nuevo = new Nodo_Arbol();
     nuevo->nodo = nodo;
@@ -32,7 +32,7 @@ void Arbol::Insertar(Lista::Nodo* nodo){
 }
 
 
-void Arbol::Pop(int id){
+void Arbol::pop(int id){
     Nodo_Arbol* actual = raiz;
     Nodo_Arbol* padre = nullptr;
 
@@ -108,7 +108,7 @@ void Arbol::Pop(int id){
     }
 }
 
-Arbol::Nodo_Arbol* Arbol::BuscarNodoArbol(int id){ //si retorna null el nodo no fue encontrado
+Arbol::Nodo_Arbol* Arbol::buscarNodoArbol(int id){ //si retorna null el nodo no fue encontrado
     Nodo_Arbol* actual = raiz;
 
     while(actual){
@@ -123,7 +123,7 @@ Arbol::Nodo_Arbol* Arbol::BuscarNodoArbol(int id){ //si retorna null el nodo no 
     return nullptr;
 }
 
-Lista::Nodo* Arbol::BuscarNodo(int id){
+Lista::Nodo* Arbol::buscarNodo(int id){
     Nodo_Arbol* arbol = BuscarNodoArbol(id);
     if(arbol == nullptr) return nullptr;
     return arbol->nodo;
