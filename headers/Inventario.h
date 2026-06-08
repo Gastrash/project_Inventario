@@ -8,11 +8,13 @@ class Inventario{
     private:
         Lista lista;
         Arbol arbol;
+        
+        Lista::Nodo* actual = nullptr;
 
     public:
         void run();
         void pushProducto();
-        void popProducto();
-        void buscarProducto();
+        void popProducto(int id);
+        Lista::Nodo* buscarProducto(int id);
         void listaProducto();
 };
