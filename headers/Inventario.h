@@ -3,6 +3,7 @@
 #pragma once
 #include "../headers/Lista.h"
 #include "../headers/Arbol.h"
+#include "../headers/Producto.h"
 
 class Inventario{
     private:
@@ -15,6 +16,6 @@ class Inventario{
         void run();
         void pushProducto();
         void popProducto(int id);
-        Lista::Nodo* buscarProducto(int id);
+        Producto* buscarProducto(int id);
         void listaProducto();
 };

@@ -25,10 +25,12 @@ void Inventario::popProducto(int id){
     lista.pop(borrar);
 }
 
-Lista::Nodo* Inventario::buscarProducto(int id){
-    return arbol.buscarNodo(id);
+Producto* Inventario::buscarProducto(int id){
+    Lista::Nodo* nodo = arbol.buscarNodo(id);
+    if(nodo == nullptr) return nullptr;
+    return &nodo->P;
 }
 
 void Inventario::listaProducto(){
-    
+    //devolver array de Productos en memoria
 }
