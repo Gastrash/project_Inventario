@@ -4,6 +4,7 @@
 #include "../headers/Lista.h"
 #include "../headers/Arbol.h"
 #include "../headers/Producto.h"
+#include <string>
 
 class Inventario{
     private:
@@ -13,9 +14,10 @@ class Inventario{
         Lista::Nodo* actual = nullptr;
 
     public:
-        void run();
-        void pushProducto();
+        void pushProducto(std::string name, int stock);
         void popProducto(int id);
         Producto* buscarProducto(int id);
+        void modificar(int id, std::string name);
+        void modificar(int id, int stock);
         void listaProducto();
 };
