@@ -3,6 +3,8 @@
 #include "../headers/Lista.h"
 #include "../headers/Producto.h"
 
+#include <iostream>
+
 Lista::Nodo::Nodo(std::string name, int stock)
 : P(name, stock),
   siguiente(nullptr),
@@ -34,12 +36,14 @@ Lista::Nodo* Lista::push(std::string name, int stock){
 
 void Lista::pop(Nodo* borrar){
     if(!borrar) return;
+
+    std::cout<<"borrando"<<std::endl;
     
     Nodo* anterior = borrar->anterior;
     Nodo* siguiente = borrar->siguiente;
 
     if(Cabeza == borrar && Ultimo_nodo == borrar){  
-        delete borrar;  
+        delete borrar;
         Cabeza = nullptr;  
         Ultimo_nodo = nullptr;  
         return;  
@@ -68,7 +72,7 @@ void Lista::pop(Nodo* borrar){
     siguiente->anterior = anterior;  
     anterior->siguiente = siguiente;  
 
-    delete borrar;  
+    delete borrar;
     return;
 }
 
@@ -79,5 +83,6 @@ void Lista::borrarLista(){
 }
 
 Lista::~Lista(){
+    std::cout<<"Destructor"<<std::endl;
     borrarLista();
 }

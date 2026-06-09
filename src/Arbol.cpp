@@ -2,6 +2,12 @@
 
 #include "../headers/Arbol.h"
 
+#include <iostream>
+
+Arbol::Arbol(){
+    std::cout<<"Constructor Arbol ";
+}
+
 void Arbol::push(Lista::Nodo* nodo){
 
     Nodo_Arbol* nuevo = new Nodo_Arbol();
@@ -136,8 +142,10 @@ void Arbol::borrarArbol(Nodo_Arbol* nodo){
     borrarArbol(nodo->der);
 
     delete nodo;
+    std::cout<<"Nodo borrado ";
 }
 
 Arbol::~Arbol(){
+    std::cout<<"destructorArbol ";
     borrarArbol(raiz);
 }

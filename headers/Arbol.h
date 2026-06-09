@@ -17,6 +17,7 @@ class Arbol{
         void borrarArbol(Nodo_Arbol* nodo);
         
     public:
+        Arbol();
         void push(Lista::Nodo* nodo);
         void pop(int id);
         Lista::Nodo* buscarNodo(int id);
