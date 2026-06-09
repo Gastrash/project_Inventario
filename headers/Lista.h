@@ -2,6 +2,7 @@
 
 #pragma once
 #include "../headers/Producto.h"
+#include<string>
 
 class Lista {
 
@@ -10,12 +11,12 @@ class Lista {
             Producto P;
             Nodo* siguiente;
             Nodo* anterior;
+
+            Nodo(std::string name, int stock);
         };
         
-        Nodo* push();
-
+        Nodo* push(std::string name, int stock);
         void pop(Nodo* borrar);
-
         ~Lista();
     
     private:

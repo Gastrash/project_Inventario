@@ -124,7 +124,7 @@ Arbol::Nodo_Arbol* Arbol::buscarNodoArbol(int id){ //si retorna null el nodo no 
 }
 
 Lista::Nodo* Arbol::buscarNodo(int id){
-    Nodo_Arbol* arbol = BuscarNodoArbol(id);
+    Nodo_Arbol* arbol = buscarNodoArbol(id);
     if(arbol == nullptr) return nullptr;
     return arbol->nodo;
 }

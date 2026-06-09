@@ -2,9 +2,9 @@
 
 #include "../headers/Producto.h"
 
-Producto::Producto(){
-    this->name = "";
-    this->cantidad = 0;
+Producto::Producto(std::string name, int stock){
+    this->name = name;
+    this->stock = stock;
     this->id = idFunction();
     this->active = true;
 }
@@ -13,8 +13,8 @@ std::string Producto::getName(){
     return name;
 }
 
-int Producto::getCantidad(){
-    return cantidad;
+int Producto::getStock(){
+    return stock;
 }
 
 int Producto::getId(){
@@ -26,8 +26,8 @@ int Producto::idFunction(){
     return id++;
 }
 
-void Producto::setCantidad(int cantidad){
-    this->cantidad = cantidad;
+void Producto::setStock(int stock){
+    this->stock = stock;
 }
 
 void Producto::setName(std::string name){

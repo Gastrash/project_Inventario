@@ -3,13 +3,14 @@
 #include "../headers/Lista.h"
 #include "../headers/Producto.h"
 
-using namespace std;
+Lista::Nodo::Nodo(std::string name, int stock)
+: P(name, stock),
+  siguiente(nullptr),
+  anterior(nullptr)
+{}
 
-Lista::Nodo* Lista::push(){
-    Nodo* nuevo_nodo = new Nodo();
-    nuevo_nodo->siguiente = nullptr;
-    nuevo_nodo->anterior = nullptr;
-    nuevo_nodo->P = Pr;
+Lista::Nodo* Lista::push(std::string name, int stock){
+    Nodo* nuevo_nodo = new Nodo(name, stock);
 
     if(!Cabeza){
         nuevo_nodo->siguiente = nuevo_nodo;
@@ -73,7 +74,7 @@ void Lista::pop(Nodo* borrar){
 
 void Lista::borrarLista(){
     while(Cabeza){
-        Pop(Cabeza);
+        pop(Cabeza);
     }
 }
 

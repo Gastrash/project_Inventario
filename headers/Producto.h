@@ -4,23 +4,20 @@
 #include <string>
 
 class Producto {
-private:
+    private:
+        std::string name;  
+        int stock;  
+        int id;
+        bool active;
 
-std::string name;  
-int cantidad;  
-int id;
-bool active;
-
-public:
-
-Producto();  
-
-std::string getName();
-int getCantidad();  
-int getId();  
-int idFunction();  
-void setCantidad(int cantidad);
-void setName(std::string name);
-void setActive(bool active);
+    public:
+        Producto(std::string name, int stock);  
+        std::string getName();
+        int getStock();  
+        int getId();  
+        int idFunction();  
+        void setStock(int stock);
+        void setName(std::string name);
+        void setActive(bool active);
 
 };
