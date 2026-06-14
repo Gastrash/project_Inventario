@@ -9,42 +9,57 @@ using namespace std;
 //main
 
 void UX::run(){
-    startMenu();
-    
+    while(render()){}
 }
 
-//funciones principales
+//render
 
-void UX::render(){
+bool UX::render(){
     switch(estado){
         case MENU:
             startMenu();
+            return true;
             break;
         case PUSH:
             pushMenu();
+            return true;
             break;
         case POP:
             popMenu();
+            return true;
             break;
         case BUSCAR:
             buscarMenu();
+            return true;
             break;
         case LISTA:
             listaMenu();
+            return true;
             break;
         case PRODUCTO:
             productoMenu();
+            return true;
             break;
         case SALIR:
-            salir();
+            return false;
             break;
     }
 }
 
+//funciones UX
+/*
+- void startMenu();
+- void pushMenu();
+- void popMenu();
+- void buscarMenu();
+- void listaMenu();
+- void productoMenu(Producto* P);
+*/
+
 void UX::startMenu(){
     limpiarPantalla();
     cout<<"Iniciando Inventario..";
-    sleep(1);
+    sleepSeconds(1);
     limpiarPantalla();
     int i;
 
@@ -63,24 +78,28 @@ void UX::startMenu(){
         case 0:
             estado = PUSH;
             render();
+            break;
         case 1:
             estado = PRODUCTO;
             render();
+            break;
         case 2:
             estado = BUSCAR;
             render();
+            break;
         case 3:
             estado = LISTA;
             render();
+            break;
         case 4:
             estado = SALIR;
             render();
     }
 }
 
-void UX::pushMenu(){
+void UX::pushMenu(){ //
     cout<<"..";
-    sleep(1);
+    sleepSeconds(1);
     limpiarPantalla();
 
     cout<<"Inventario         "<<release<<"\n\n";
@@ -105,22 +124,22 @@ void UX::listaMenu(){
 
 }
 
-void UX::productoMenu(Producto* P){
+void UX::productoMenu(Producto* P){ //
     if(P == nullptr){
         P = inventario.buscarProducto();
     }
 }
 
-void UX::salir(){
-    
-}
+//funciones Auxiliares
+/*
+- void limpiarPantalla();
+- void sleepSeconds();
+*/
 
-//funciones secundarias
-
-void UX::limpiarPantalla(){
+void limpiarPantalla(){
     cout << "\033[2J\033[H";
 }
 
-void sleep(int i){
+void sleepSeconds(int i){
     std::this_thread::sleep_for(std::chrono::seconds(i));
 }
