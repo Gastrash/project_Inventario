@@ -1,46 +1,126 @@
-//Inventario.cpp
+//UX.cpp
 
-#include "../headers/Inventario.h"
+#include "../headers/UX.h"
+#include <thread>
+#include <chrono>
 
-/*
-void siguienteProducto();
-void productoAnterior();
-void mostrarProductoActual();
-void borrarProductoActual();
-*/
+using namespace std;
 
-void Inventario::pushProducto(std::string name, int stock){
-    Lista::Nodo* nuevo_nodo = lista.push(name, stock);
-    arbol.push(nuevo_nodo);
-}
+//main
 
-void Inventario::popProducto(int id){
-    Lista::Nodo* borrar = arbol.buscarNodo(id);
+void UX::run(){
+    startMenu();
     
-    arbol.pop(id);
-    lista.pop(borrar);
 }
 
-Producto* Inventario::buscarProducto(int id){
-    Lista::Nodo* nodo = arbol.buscarNodo(id);
-    if(nodo == nullptr) return nullptr;
-    return &nodo->P;
+//funciones principales
+
+void UX::render(){
+    switch(estado){
+        case MENU:
+            startMenu();
+            break;
+        case PUSH:
+            pushMenu();
+            break;
+        case POP:
+            popMenu();
+            break;
+        case BUSCAR:
+            buscarMenu();
+            break;
+        case LISTA:
+            listaMenu();
+            break;
+        case PRODUCTO:
+            productoMenu();
+            break;
+        case SALIR:
+            salir();
+            break;
+    }
 }
 
-void Inventario::modificar(int id, std::string name){
-    Producto* p = buscarProducto(id);
-    if(!p) return;
+void UX::startMenu(){
+    limpiarPantalla();
+    cout<<"Iniciando Inventario..";
+    sleep(1);
+    limpiarPantalla();
+    int i;
 
-    p->setName(name);
+    cout<<"Inventario         "<<release<<"\n\n";
+    cout<<"-------------------------------\n\n\n";
+    cout<<"0 . Nuevo Producto\n\n";
+    cout<<"1 . Ver Productos\n\n";
+    cout<<"2 . Buscar Producto\n\n";
+    cout<<"3 . Lista de Productos\n\n";    
+    cout<<"4 . Salir\n\n";
+    cout<<"--------------------------------\n\n";
+    
+    cin>>i;
+    
+    switch(i){
+        case 0:
+            estado = PUSH;
+            render();
+        case 1:
+            estado = PRODUCTO;
+            render();
+        case 2:
+            estado = BUSCAR;
+            render();
+        case 3:
+            estado = LISTA;
+            render();
+        case 4:
+            estado = SALIR;
+            render();
+    }
 }
 
-void Inventario::modificar(int id, int stock){
-    Producto* p = buscarProducto(id);
-    if(!p) return;
+void UX::pushMenu(){
+    cout<<"..";
+    sleep(1);
+    limpiarPantalla();
 
-    p->setStock(stock);
+    cout<<"Inventario         "<<release<<"\n\n";
+    cout<<"-------------------------------\n\n\n";
+    cout<<"0 . Nuevo Producto\n\n";
+    cout<<"1 . Ver Productos\n\n";
+    cout<<"2 . Buscar Producto\n\n";
+    cout<<"3 . Lista de Productos\n\n";
+    cout<<"4 . Salir\n\n";
+    cout<<"--------------------------------\n\n";
 }
 
-void Inventario::listaProducto(){
-    //devolver array de Productos en memoria
+void UX::popMenu(){
+
+}
+
+void UX::buscarMenu(){
+
+}
+
+void UX::listaMenu(){
+
+}
+
+void UX::productoMenu(Producto* P){
+    if(P == nullptr){
+        P = inventario.buscarProducto();
+    }
+}
+
+void UX::salir(){
+    
+}
+
+//funciones secundarias
+
+void UX::limpiarPantalla(){
+    cout << "\033[2J\033[H";
+}
+
+void sleep(int i){
+    std::this_thread::sleep_for(std::chrono::seconds(i));
 }
