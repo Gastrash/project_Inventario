@@ -14,21 +14,20 @@ class UX{
             POP,
             BUSCAR,
             LISTA,
-            PRODUCTO
+            PRODUCTO,
+            SALIR
         };
         
         state estado = MENU;
         Inventario inventario;
         
-        void render(enum option);
+        bool render();
         void startMenu();
         void pushMenu();
         void popMenu();
         void buscarMenu();
         void listaMenu();
-        void productoMenu();
-        void limpiarPantalla();
-        void salir();
+        void productoMenu(Producto* P);
     public:
         void run();
 };
