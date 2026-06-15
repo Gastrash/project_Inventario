@@ -35,7 +35,7 @@ bool UX::render(){
             return true;
             break;
         case PRODUCTO:
-            productoMenu();
+            productosMenu();
             return true;
             break;
         case SALIR:
