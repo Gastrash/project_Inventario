@@ -28,7 +28,7 @@ class UX{
         void buscarMenu();
         void listaMenu();
         void productosMenu();
-        void pMenu();
+        void pMenu(Producto* P);
     public:
         void run();
 };
