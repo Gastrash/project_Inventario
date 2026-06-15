@@ -184,6 +184,7 @@ bool yesOrNo(){
             case 'n':
                 return false;
             default:
+        }
     }
 }
 
