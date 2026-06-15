@@ -20,6 +20,7 @@ class UX{
         
         state estado = MENU;
         Inventario inventario;
+        Producto* productoActual;
         
         bool render();
         void startMenu();
