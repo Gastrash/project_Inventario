@@ -151,8 +151,8 @@ void UX::pMenu(Producto* P){ //
     std::cout<<"-------------------------------\n\n";
     std::cout<<"Nombre: <<P.getName()<<".\n\n";
     std::cout<<"-------------------------------\n\n";
-    std::cout<<"Stock: <<P.getStock<<".\n\n";
-    std::cout<<"Id: <<P.getId<<".\n\n";
+    std::cout<<"Stock: <<P.getStock()<<".\n\n";
+    std::cout<<"Id: <<P.getId()<<".\n\n";
     std::cout<<"-------------------------------\n\n";
 }
 
