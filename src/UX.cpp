@@ -143,12 +143,13 @@ void UX::productosMenu(){//
     //recorrido de la lista con función inventario
 }
 
-void UX::pMenu(Producto* P){ //
+void UX::pMenu(){ //
+Producto* P = productoActual;
     std::cout<<"-------------------------------\n\n";
-    std::cout<<"Nombre: <<P.getName()<<".\n\n";
+    std::cout<<"Nombre: "<<P->getName()<<".\n\n";
     std::cout<<"-------------------------------\n\n";
-    std::cout<<"Stock: <<P.getStock()<<".\n\n";
-    std::cout<<"Id: <<P.getId()<<".\n\n";
+    std::cout<<"Stock: "<<P->getStock()<<".\n\n";
+    std::cout<<"Id: "<<P->getId()<<".\n\n";
     std::cout<<"-------------------------------\n\n";
 }
 
