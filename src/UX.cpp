@@ -81,6 +81,9 @@ void UX::startMenu(){
         case 4:
             estado = SALIR;
             break;
+        default:
+            estado = MENU;
+            break;
     }
 }
 
