@@ -4,8 +4,6 @@
 #include <thread>
 #include <chrono>
 
-using namespace std;
-
 //main
 
 void UX::run(){
@@ -58,21 +56,21 @@ bool UX::render(){
 
 void UX::startMenu(){
     limpiarPantalla();
-    cout<<"Iniciando Inventario..";
+    std::cout<<"Iniciando Inventario..";
     sleepSeconds(1);
     limpiarPantalla();
     int i;
 
-    cout<<"Inventario         "<<release<<"\n\n";
-    cout<<"-------------------------------\n\n\n";
-    cout<<"0 . Nuevo Producto\n\n";
-    cout<<"1 . Ver Productos\n\n";
-    cout<<"2 . Buscar Producto\n\n";
-    cout<<"3 . Lista de Productos\n\n";    
-    cout<<"4 . Salir\n\n";
-    cout<<"--------------------------------\n\n";
+    std::cout<<"Inventario         "<<release<<"\n\n";
+    std::cout<<"-------------------------------\n\n\n";
+    std::cout<<"0 . Nuevo Producto\n\n";
+    std::cout<<"1 . Ver Productos\n\n";
+    std::cout<<"2 . Buscar Producto\n\n";
+    std::cout<<"3 . Lista de Productos\n\n";    
+    std::cout<<"4 . Salir\n\n";
+    std::cout<<"--------------------------------\n\n";
     
-    cin>>i;
+    std::cin>>i;
     
     switch(i){
         case 0:
@@ -98,18 +96,42 @@ void UX::startMenu(){
 }
 
 void UX::pushMenu(){ //
-    cout<<"..";
-    sleepSeconds(1);
     limpiarPantalla();
+    std::string name;
+    int stock;
 
-    cout<<"Inventario         "<<release<<"\n\n";
-    cout<<"-------------------------------\n\n\n";
-    cout<<"0 . Nuevo Producto\n\n";
-    cout<<"1 . Ver Productos\n\n";
-    cout<<"2 . Buscar Producto\n\n";
-    cout<<"3 . Lista de Productos\n\n";
-    cout<<"4 . Salir\n\n";
+    std::cout<<"Agregar Producto                   ::";
+    std::cout<<"-------------------------------\n\n";
+    std::cout<<"Nombre:\n\n";
+    std::cout<<"--------------------------------\n\n";
+    getline(cin, name);
+    std::cout<<"Stock:\n\n";
     cout<<"--------------------------------\n\n";
+    getline(cin, name);
+    
+    limpiarPantalla();
+    std::cout<<"-------------------------------\n\n";
+    std::cout<<"Producto Agregado\n\n";
+    std::cout<<"Nombre: <<name<<".\n\n";
+    std::cout<<"Stock: <<stock<<".\n\n";
+    std::cout<<"Confirmar? [Y/N]";
+    std::cout<<"-------------------------------\n\n";
+    
+    if(yesOrNo()){
+        inventario.pushProducto(name, stock);
+        limpiarPantalla();
+        std::cout<<"-------------------------------\n\n";
+        std::cout<<"Producto agregado correctamente.\n\n";
+        std::cout<<"-------------------------------\n\n";
+        continue();
+    }
+    else{
+        std::cout<<"-------------------------------\n\n";
+        std::cout<<"Proceso cancelado.\n\n";
+        std::cout<<"-------------------------------\n\n";
+        continue();
+    }
+    estado = MENU;
 }
 
 void UX::popMenu(){
@@ -128,6 +150,13 @@ void UX::productoMenu(Producto* P){ //
     if(P == nullptr){
         P = inventario.buscarProducto();
     }
+    
+    std::cout<<"-------------------------------\n\n";
+    std::cout<<"Nombre: <<P.getName()<<".\n\n";
+    std::cout<<"-------------------------------\n\n";
+    std::cout<<"Stock: <<P.getStock<<".\n\n";
+    std::cout<<"Id: <<P.getId<<".\n\n";
+    std::cout<<"-------------------------------\n\n";
 }
 
 //funciones Auxiliares
@@ -137,9 +166,30 @@ void UX::productoMenu(Producto* P){ //
 */
 
 void limpiarPantalla(){
-    cout << "\033[2J\033[H";
+    std::cout<"\033[2J\033[H";
 }
 
 void sleepSeconds(int i){
     std::this_thread::sleep_for(std::chrono::seconds(i));
+}
+
+bool yesOrNo(char answer){
+    while(true){
+        cin>>answer;
+        switch(answer){
+            case "Y":
+                return true;
+            case "y":
+                return true;
+            case "N":
+                return false;
+            case "n":
+                return false;
+            default:
+    }
+}
+
+void continue(){
+    std::cout<<"Enter para continuar.\n\n";
+    std::cin.get();
 }
