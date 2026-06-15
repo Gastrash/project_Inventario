@@ -120,13 +120,13 @@ void UX::pushMenu(){ //
         std::cout<<"-------------------------------\n\n";
         std::cout<<"Producto agregado correctamente.\n\n";
         std::cout<<"-------------------------------\n\n";
-        continue();
+        waitEnter();
     }
     else{
         std::cout<<"-------------------------------\n\n";
         std::cout<<"Proceso cancelado.\n\n";
         std::cout<<"-------------------------------\n\n";
-        continue();
+        waitEnter();
     }
     estado = MENU;
 }
@@ -186,7 +186,7 @@ bool yesOrNo(char answer){
     }
 }
 
-void continue(){
+void waitEnter(){
     std::cout<<"Enter para continuar.\n\n";
     std::cin.get();
 }
