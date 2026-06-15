@@ -146,11 +146,11 @@ void UX::listaMenu(){
 
 }
 
-void UX::productoMenu(Producto* P){ //
-    if(P == nullptr){
-        P = inventario.buscarProducto();
-    }
-    
+void UX::productosMenu(){//
+    //recorrido de la lista con función inventario
+}
+
+void UX::pMenu(){ //
     std::cout<<"-------------------------------\n\n";
     std::cout<<"Nombre: <<P.getName()<<".\n\n";
     std::cout<<"-------------------------------\n\n";
