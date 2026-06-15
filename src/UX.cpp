@@ -17,30 +17,23 @@ bool UX::render(){
         case MENU:
             startMenu();
             return true;
-            break;
         case PUSH:
             pushMenu();
             return true;
-            break;
         case POP:
             popMenu();
             return true;
-            break;
         case BUSCAR:
             buscarMenu();
             return true;
-            break;
         case LISTA:
             listaMenu();
             return true;
-            break;
         case PRODUCTO:
             productosMenu();
             return true;
-            break;
         case SALIR:
             return false;
-            break;
     }
 }
 
