@@ -100,6 +100,7 @@ void UX::pushMenu(){ //
     std::cout<<"-------------------------------\n\n";
     std::cout<<"Nombre:\n\n";
     std::cout<<"--------------------------------\n\n";
+    std::cin.ignore();
     getline(cin, name);
     std::cout<<"Stock:\n\n";
     cout<<"--------------------------------\n\n";
