@@ -170,7 +170,8 @@ void sleepSeconds(int i){
     std::this_thread::sleep_for(std::chrono::seconds(i));
 }
 
-bool yesOrNo(char answer){
+bool yesOrNo(){
+    char answer;
     while(true){
         cin>>answer;
         switch(answer){
