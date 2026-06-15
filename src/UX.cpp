@@ -147,7 +147,7 @@ void UX::productosMenu(){//
     //recorrido de la lista con función inventario
 }
 
-void UX::pMenu(){ //
+void UX::pMenu(Producto* P){ //
     std::cout<<"-------------------------------\n\n";
     std::cout<<"Nombre: <<P.getName()<<".\n\n";
     std::cout<<"-------------------------------\n\n";
