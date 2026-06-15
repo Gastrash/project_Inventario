@@ -163,7 +163,7 @@ void UX::pMenu(){ //
 */
 
 void limpiarPantalla(){
-    std::cout<"\033[2J\033[H";
+    std::cout<<"\033[2J\033[H";
 }
 
 void sleepSeconds(int i){
