@@ -103,7 +103,7 @@ void UX::pushMenu(){ //
     std::cin.ignore();
     getline(cin, name);
     std::cout<<"Stock:\n\n";
-    cout<<"--------------------------------\n\n";
+    std::cout<<"--------------------------------\n\n";
     std::cin>>stock;
     
     limpiarPantalla();
