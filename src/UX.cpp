@@ -175,13 +175,13 @@ bool yesOrNo(){
     while(true){
         cin>>answer;
         switch(answer){
-            case "Y":
+            case 'Y':
                 return true;
-            case "y":
+            case 'y':
                 return true;
-            case "N":
+            case 'N':
                 return false;
-            case "n":
+            case 'n':
                 return false;
             default:
     }
