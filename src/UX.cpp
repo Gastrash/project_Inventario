@@ -109,8 +109,8 @@ void UX::pushMenu(){ //
     limpiarPantalla();
     std::cout<<"-------------------------------\n\n";
     std::cout<<"Producto Agregado\n\n";
-    std::cout<<"Nombre: <<name<<".\n\n";
-    std::cout<<"Stock: <<stock<<".\n\n";
+    std::cout<<"Nombre: "<<name<<".\n\n";
+    std::cout<<"Stock: "<<stock<<".\n\n";
     std::cout<<"Confirmar? [Y/N]";
     std::cout<<"-------------------------------\n\n";
     
