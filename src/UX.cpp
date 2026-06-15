@@ -75,23 +75,19 @@ void UX::startMenu(){
     switch(i){
         case 0:
             estado = PUSH;
-            render();
             break;
         case 1:
             estado = PRODUCTO;
-            render();
             break;
         case 2:
             estado = BUSCAR;
-            render();
             break;
         case 3:
             estado = LISTA;
-            render();
             break;
         case 4:
             estado = SALIR;
-            render();
+            break;
     }
 }
 
